@@ -1,0 +1,53 @@
+WORKERS: 4
+
+DATASET:
+  NAME: ActivityNet
+  NO_VAL: True
+  NORMALIZE: False
+
+MODEL:
+  NAME: EAMAT
+  CHECKPOINT: /media/data/ys/work/tsg/TSG/results/Charades/SimpleNet_22422/checkpoints/SimpleNet_42.t7
+  PARAMS:
+    video_feature_dim: 500
+    query_feature_dim: 300
+    max_len_query_tag: 8
+    dim: 512
+    query_position: False
+    video_position: False
+    query_attention_layers: 1
+    video_attention_layers: 1
+    query_attention: "MultiLSTMAttention"
+    video_attention: "MultiHeadAttention"
+    early_attention: "MultiHeadAttention"
+    early_attention_layers: 1
+    post_attention_layers: 3
+    post_attention: "MultiLSTMAttention" # choice of [MultiHeadAttention, DaMultiHeadAttention, MultiLSTMAttention, MultiConvAttention]
+    fusion_module: "CQFusion" # choice of [CQFusion, InteractorFusion, CosineFusion]
+    num_heads: 8
+    num_layers: 1
+    num_step: 3
+    bi_direction: True
+    kernels: [3, 5, 7]
+    drop_rate: 0.5
+    DEBUG: False
+
+TRAIN:
+  BATCH_SIZE: 16
+  LR: 0.00005
+  WEIGHT_DECAY: 0.01
+  MAX_EPOCH: 50
+  MILE_STONE: [80]
+  GAMMA: 0.1
+  CONTINUE: False
+
+LOSS:
+  LOCALIZATION: 1.0
+  MATCH: 10.0
+  DISTANCE: 0.0
+  KL: 100.0
+  EARLY: 1.0
+
+TEST:
+  BATCH_SIZE: 32
+  EVAL_TRAIN: True
