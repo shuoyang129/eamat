@@ -8,8 +8,8 @@ bash conda.sh
 ```
 
 ## Dataset Preparation
-We use [VSLNet's](https://github.com/IsaacChanghau/VSLNet) [data](https://app.box.com/s/h0sxa5klco6qve5ahnz50ly2nksmuedw), for CharadesSTA we use the "new" fold, and for TACoS we use the "old" fold.
-and then modify the line 81~91 of "dataset/BaseDataset.py" to your own path
+We use [VSLNet's](https://github.com/IsaacChanghau/VSLNet) data. The visual features can be download [here](https://app.box.com/s/h0sxa5klco6qve5ahnz50ly2nksmuedw), for CharadesSTA we use the "new" fold, and for TACoS we use the "old" fold, annotation and other details can be found [here](https://github.com/IsaacChanghau/VSLNet/tree/master/prepare)
+and then modify the line 81~91 of "dataset/BaseDataset.py" to your own path.
 
 ## Quick Start
 **Train**
